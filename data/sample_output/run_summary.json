@@ -1,0 +1,20 @@
+{
+  "mode": "synthetic",
+  "raw_tweet_count": 2376,
+  "after_cleaning_before_dedup": 2376,
+  "after_dedup": 2137,
+  "duplicates_removed": 239,
+  "dedup_breakdown": {
+    "start_count": 2376,
+    "removed_exact_id": 3,
+    "removed_fingerprint": 204,
+    "removed_fuzzy": 32,
+    "final_count": 2137
+  },
+  "tfidf_feature_matrix_shape": [
+    2137,
+    500
+  ],
+  "time_buckets_with_signal": 26,
+  "note": "Generated from SYNTHETIC sample data - see decision.md section 1."
+}
