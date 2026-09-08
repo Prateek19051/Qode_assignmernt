@@ -117,13 +117,6 @@ Everything tunable lives in `config.yaml` — hashtags, scrape delays,
 Parquet partitioning, TF-IDF size, bootstrap iterations, etc. Change
 values there rather than editing source files.
 
-## Sample output included in this repo
-`data/sample_output/` already contains output from a synthetic run so
-graders can see the shape of the results without running anything.
-`data/processed/sample_processed_PYARROW_PENDING.csv` is a CSV
-stand-in for the Parquet dataset — see "Known limitation" above for why,
-and re-run `main.py` yourself to get the real partitioned Parquet
-files before submitting.
 
 ## Approach summary
 1. **Collect**: Selenium scrapes public X search pages for each
@@ -143,6 +136,3 @@ files before submitting.
 6. **Visualize**: plots are built from streamed batches and reservoir
    sampling rather than loading the full dataset into memory, so the
    same code works whether there are 2,000 or 200,000 rows.
-
-Full reasoning for each of these choices — and the trade-offs — is in
-`decision.md`.
