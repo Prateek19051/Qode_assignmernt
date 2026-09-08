@@ -1,0 +1,45 @@
+# Central configuration for the pipeline.
+# Keeping all tunable values here (instead of hard-coding them in scripts)
+# so the same code can be re-used for a bigger run without editing source files.
+
+scraper:
+  hashtags:
+    - nifty50
+    - sensex
+    - intraday
+    - banknifty
+  target_tweet_count: 2000
+  lookback_hours: 24
+  headless: true
+  # Minimum and maximum seconds to wait between actions.
+  # A random delay inside this range is used instead of a fixed sleep,
+  # so the scraping pattern does not look perfectly robotic.
+  min_delay_seconds: 2.5
+  max_delay_seconds: 5.5
+  # Stop scrolling a hashtag page if no new tweet is found after this many
+  # consecutive scroll attempts (avoids an infinite loop when we hit the
+  # end of what X will show an unauthenticated / rate-limited session).
+  max_empty_scrolls: 8
+  # How many hashtags to scrape at the same time.
+  max_concurrent_workers: 2
+
+storage:
+  raw_dir: data/raw
+  processed_dir: data/processed
+  # Parquet files are written partitioned by this column.
+  partition_column: date
+
+processing:
+  dedup_similarity_threshold: 0.92
+
+analysis:
+  tfidf_max_features: 500
+  tfidf_ngram_range: [1, 2]
+  # Number of bootstrap resamples used to build the confidence interval
+  # around the aggregated signal.
+  bootstrap_iterations: 500
+  confidence_level: 0.95
+
+logging:
+  log_dir: logs
+  level: INFO

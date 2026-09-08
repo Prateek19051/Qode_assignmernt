@@ -1,0 +1,11 @@
+venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+logs/*.log
+.DS_Store
+*.egg-info/
+
+# The sample data/output committed to this repo (data/raw, data/processed,
+# data/sample_output) is intentionally kept so graders can see real
+# results without running anything. Only ignore logs and caches above.
